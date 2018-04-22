@@ -1,0 +1,31 @@
+<div id="head">
+  <h1>Burger Time!</h1>
+  <img src="https://media.timeout.com/images/103458381/630/472/image.jpg">
+</div>
+
+<div id="food">
+  <div id="left">
+    <h3>Burgers you can eat:</h3>
+    <ul>
+      {{#each burgers}} {{#unless devoured}} {{> burgers/burger-block devoured=true}} {{/unless}} {{/each}}
+    </ul>
+  </div>
+
+  <div id="right">
+    <h3>Burgers you have already eaten:</h3>
+    <ul>
+      {{#each burgers}} {{#if devoured}} {{> burgers/burger-block devoured=false}} {{/if}} {{/each}}
+    </ul>
+  </div>
+</div>
+
+<div id="add">
+  <h2>Add a new type of burger:</h2>
+  <form class="create-form">
+    <div class="form-group">
+      <label for="new">New Burger:</label>
+      <input type="text" id="new" name="name">
+      <button type="submit">Add Burger</button>
+    </div>
+  </form>
+</div>
